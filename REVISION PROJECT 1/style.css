@@ -1,0 +1,284 @@
+/* GLOBAL STYLES & RESET */
+:root {
+    --primary-color: #333;
+    --text-color-muted: #666;
+    --background-light: #fafafa;
+    --box-shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+    --padding-desktop: 40px;
+    --padding-mobile: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    line-height: 1.5;
+    background-color: white;
+}
+
+.container {
+    max-width: 1300px; /* ⭐ 2. Hero Adjustment: Increased Max Width */
+    margin: auto;
+    padding: 0 var(--padding-desktop); 
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- ⭐ 1. Navbar Improvement --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px var(--padding-desktop); /* 🔧 Fix: Left/right padding: 30-50px (using 40px base) */
+    font-weight: 600;
+    background: white; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* 💎 Optional: Soft bottom shadow */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.nav-left {
+    font-size: 1.6rem; 
+    font-weight: 800;
+}
+
+.nav-right a {
+    font-size: 15px; /* 🔧 Fix: Increase font-size slightly */
+    margin-left: 30px; /* 🔧 Fix: Slight horizontal spacing */
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.nav-right a:hover {
+    color: #007bff; 
+}
+
+/* --- ⭐ 2. Hero Section Adjustment --- */
+.hero-section {
+    height: 70vh; 
+    display: flex; 
+    justify-content: center; /* 🔧 Fix: Center alignment */
+    align-items: center; 
+    gap: 60px; /* 🔧 Fix: Reduce gap to ~40–60px */
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: left; /* Ensure text alignment is left on desktop */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem; /* 🔧 Fix: Increase heading size a bit */
+    font-weight: 800;
+}
+
+.hero-section .subheading {
+    color: #555; 
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+/* Button CSS - unchanged, already clean */
+.btn {
+    display: inline-block;
+    padding: 12px 28px; 
+    border-radius: 8px; 
+    transition: background-color 0.3s, transform 0.3s; 
+    font-weight: 600;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: #1a1a1a; 
+}
+
+/* --- ⭐ 3. Image Polishing --- */
+.hero-image .profile-photo {
+    width: 350px; 
+    height: 450px; 
+    object-fit: cover;
+    border-radius: 16px; /* 🔧 Fix: Border-radius: 12–16px */
+    /* 🔧 Fix: Soft shadow */
+    box-shadow: var(--box-shadow-soft); 
+    display: block;
+}
+
+
+/* --- ⭐ 4. About Section — ALIGNMENT FIX --- */
+.about-section {
+    background-color: #f7f7f7;
+    padding: 80px 0; 
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px; /* Container width */
+    margin: auto; 
+    padding: 0 var(--padding-mobile); 
+}
+
+.about-content h2 {
+    letter-spacing: 1px; 
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.about-paragraph {
+    /* 🔧 Fix: Add a “content box” and restrict width */
+    max-width: 700px; 
+    margin: 0 auto 20px auto; /* 🔧 Fix: Center paragraphs */
+    line-height: 1.7; /* 🔧 Fix: Line-height 1.6+ */
+    color: #444; /* 🔧 Fix: Darker, readable text color */
+    text-align: justify; /* Optional: Looks good in a tight content box */
+}
+
+/* --- ⭐ 5. Skills Section — Tighter Look --- */
+.skills-section {
+    padding: 80px var(--padding-desktop);
+}
+
+.skills-section h2 {
+    text-align: center;
+    margin-bottom: 40px; /* 🔧 Fix: 20–25px vertical space (set to 40px for margin-bottom) */
+    font-size: 2.2rem;
+}
+
+.skills-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted minmax slightly */
+    gap: 20px; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    padding: 10px 18px; /* 🔧 Fix: Increase badge padding */
+    border: 1px solid #eee; 
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    background: #fafafa; /* 🔧 Fix: Make background even lighter */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03); /* Lighter shadow on cards */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- ⭐ 6. Footer --- */
+.footer {
+    padding: 25px 0; /* ✨ CSS: Padding increased slightly */
+    text-align: center; 
+    background-color: var(--background-light);
+    border-top: 1px solid #eee; /* ✨ CSS: Added border-top */
+}
+
+.footer p {
+    font-size: 14px; /* ✨ CSS: Font-size set */
+    color: #666; /* ✨ CSS: Color set */
+}
+
+/* --- ⭐ 7. RESPONSIVENESS CHECK --- */
+
+/* 🔧 At < 900px: Hero becomes column, Image center, Buttons center, Skills grid 2 columns */
+@media (max-width: 900px) {
+    .container {
+        padding: 0 var(--padding-mobile);
+    }
+
+    /* Hero becomes column, center items */
+    .hero-section {
+        height: auto; 
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        order: 2; 
+        text-align: center; /* Buttons center */
+    }
+
+    .hero-image {
+        order: 1; 
+    }
+    
+    .hero-section h1 {
+        font-size: 3rem; 
+    }
+
+    /* Skills grid becomes 2 columns (default minmax handles this, but ensuring responsiveness) */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    }
+}
+
+
+/* 🔧 At < 600px: Headings shrink, Skills grid 1 column, Navbar tighter */
+@media (max-width: 600px) {
+    /* Navbar spacing tighter */
+    .navbar {
+        padding: 15px var(--padding-mobile); 
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-left {
+        margin-bottom: 10px;
+    }
+
+    .nav-right a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    /* Headings shrink */
+    .hero-section h1 {
+        font-size: 2.2rem; 
+    }
+    .hero-section .subheading {
+        font-size: 1rem;
+    }
+    .about-content h2, .skills-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Responsive image adjustment */
+    .hero-image .profile-photo {
+        width: 240px; 
+        height: 300px; 
+    }
+    
+    /* Skills grid → 1 column */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+}

@@ -1,0 +1,720 @@
+/* GLOBAL STYLES & VARIABLES */
+:root {
+    --accent-color: #08aeea;
+    /* Accent color */
+    --accent-hover: #079ad5;
+    --text-dark: #111;
+    --text-body: #333;
+    --text-muted: #777;
+    --background-light: #f9f9f9;
+    --background-white: #ffffff;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --padding-desktop: 50px;
+    --gap-desktop: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-body);
+    line-height: 1.6;
+    background-color: var(--background-white);
+}
+
+.container {
+    max-width: 1200px;
+    /* Container width: 1200px */
+    margin: 0 auto;
+    padding: 0 var(--padding-desktop);
+}
+
+section {
+    padding: 100px 0;
+}
+
+h1,
+h2 {
+    color: var(--text-dark);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+.subheading {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* Base CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(8, 174, 234, 0.4);
+}
+
+/* General Buttons (Used in Pricing) */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.secondary-btn {
+    background-color: var(--background-light);
+    color: var(--text-body);
+    border: 1px solid #eee;
+}
+
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- ⭐ 1. Sticky Navbar --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--background-white);
+    /* Background: white */
+    padding: 18px 50px;
+    /* Padding: 18px 50px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Shadow soft */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.nav-links a {
+    margin-left: 30px;
+    color: var(--text-body);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.cta-nav-btn {
+    background-color: var(--accent-color);
+    color: var(--background-white) !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.cta-nav-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+
+/* --- ⭐ 2. Hero Section --- */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(120deg, #f0f8ff, #ffffff);
+    padding: 100px 0;
+}
+
+.hero-content {
+    display: flex;
+    /* 2-column flex */
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-desktop);
+    /* Gap: 70px */
+}
+
+.hero-text {
+    max-width: 55%;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    /* Big heading (3.5rem) */
+    margin-bottom: 20px;
+}
+
+.hero-text .subheading {
+    margin-bottom: 30px;
+}
+
+.hero-mockup {
+    max-width: 45%;
+}
+
+.mockup-card {
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Adjust ratio for a wide mockup */
+    background-color: var(--background-white);
+    border: 1px solid #eee;
+    border-radius: 16px;
+    box-shadow: var(--shadow-strong);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+
+/* --- ⭐ 3. Features Section --- */
+.features-section {
+    text-align: center;
+}
+
+.features-section h2 {
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+}
+
+.features-grid {
+    display: grid;
+    /* Grid 3x2 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--background-white);
+    padding: 25px;
+    /* Card padding: 25px */
+    border-radius: 16px;
+    /* Border-radius: 16px */
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    /* Title bold */
+}
+
+.feature-card .muted-text {
+    color: var(--text-muted);
+    /* Text muted */
+    font-size: 0.95rem;
+}
+
+
+/* --- ⭐ 4. Product Preview section --- */
+.preview-section {
+    background-color: var(--background-light);
+    padding: 120px 0;
+    /* Padding: 120px 40px (vertical only) */
+}
+
+.preview-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.preview-text {
+    max-width: 50%;
+}
+
+.preview-text h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.preview-text .subheading {
+    margin-bottom: 30px;
+}
+
+.preview-text ul {
+    list-style: none;
+}
+
+.preview-text ul li {
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.preview-text .fa-check-circle {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.preview-image {
+    max-width: 50%;
+}
+
+
+/* --- ⭐ 5. Pricing Section --- */
+.pricing-section {
+    text-align: center;
+}
+
+.pricing-section h2 {
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    /* Gap: 30px */
+    align-items: stretch;
+}
+
+.pricing-card {
+    background-color: var(--background-white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.pricing-card .price {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.pricing-card .amount {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pricing-card .features-list {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+    padding: 0;
+}
+
+.pricing-card .features-list li {
+    padding: 10px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px dotted #eee;
+    color: var(--text-body);
+}
+
+.pricing-card .features-list li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card .fa-check {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.pricing-card .fa-times {
+    color: #ccc;
+    margin-right: 10px;
+}
+
+/* Middle one highlighted */
+.pricing-card.highlighted {
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 15px 40px rgba(8, 174, 234, 0.2);
+    transform: scale(1.05);
+}
+
+.pricing-card.highlighted:hover {
+    transform: scale(1.08);
+}
+
+
+/* --- ⭐ 6. Testimonials Section --- */
+.testimonials-section {
+    text-align: center;
+    background-color: var(--background-light);
+}
+
+.testimonials-section h2 {
+    margin-bottom: 50px;
+}
+
+.testimonials-grid {
+    display: grid;
+    /* Grid of 3 cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--background-white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+
+.testimonial-card .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.testimonial-card .user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    margin-right: 15px;
+    overflow: hidden;
+    /* Placeholder styles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.testimonial-card .user-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+.testimonial-card .user-role {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.testimonial-card .feedback {
+    font-style: italic;
+    color: var(--text-body);
+}
+
+
+/* --- ⭐ 7. FAQ Section (CSS-only Accordion) --- */
+.faq-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.faq-section h2 {
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-toggle {
+    display: none;
+    /* Hide default checkbox */
+}
+
+.accordion-title {
+    display: block;
+    cursor: pointer;
+    padding: 18px 20px;
+    background-color: var(--background-white);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    position: relative;
+    color: var(--text-dark);
+}
+
+.accordion-title:hover {
+    background-color: var(--background-light);
+}
+
+/* Plus/Minus icon */
+.accordion-title::after {
+    content: '+';
+    font-size: 1.5rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    transition: transform 0.3s;
+}
+
+.accordion-toggle:checked+.accordion-title::after {
+    content: '−';
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background-color: #fefefe;
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 10px;
+}
+
+.accordion-toggle:checked~.accordion-content {
+    max-height: 300px;
+    /* Large enough value to show all content */
+    padding: 15px 25px 20px 25px;
+}
+
+.accordion-content p {
+    color: var(--text-muted);
+}
+
+
+/* --- ⭐ 8. CTA Section --- */
+.cta-banner {
+    background-color: var(--text-dark);
+    padding: 100px 0;
+    text-align: center;
+    /* Centered */
+    color: var(--background-white);
+}
+
+.cta-banner h2 {
+    color: var(--background-white);
+    margin-bottom: 15px;
+    font-size: 3rem;
+    /* Big heading */
+}
+
+.cta-banner .accent-text {
+    color: var(--accent-color);
+}
+
+.cta-banner p {
+    color: #ccc;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+/* Button in CTA */
+.cta-banner .cta-button {
+    background-color: var(--accent-color);
+}
+
+.cta-banner .cta-button:hover {
+    background-color: var(--accent-hover);
+}
+
+
+/* --- ⭐ 9. Footer --- */
+.footer {
+    background-color: var(--background-light);
+    /* Minimal, light */
+    padding: 50px 0 20px 0;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.footer-col a {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: var(--accent-color);
+}
+
+.logo-col .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.logo-col .copyright {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .navbar {
+        padding: 18px 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    /* Product Preview section reverse order on tablet */
+    .preview-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .preview-text,
+    .preview-image {
+        max-width: 100%;
+    }
+
+    .preview-text ul {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide menu on small screens, can use JS for toggle */
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        min-height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text .subheading {
+        font-size: 1rem;
+    }
+
+    .mockup-card {
+        aspect-ratio: 16/10;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Reversing Product Preview on mobile */
+    .preview-content {
+        flex-direction: column-reverse;
+        /* Flexbox reversed on mobile */
+    }
+
+    .features-grid,
+    .testimonials-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.highlighted {
+        transform: scale(1.0);
+    }
+
+    .pricing-card.highlighted:hover {
+        transform: scale(1.03);
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+    }
+
+    .footer-col.logo-col {
+        grid-column: span 2;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .cta-banner h2 {
+        font-size: 2rem;
+    }
+
+    .pricing-card {
+        padding: 30px 20px;
+    }
+
+    .cta-banner .cta-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

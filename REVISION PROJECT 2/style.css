@@ -1,0 +1,496 @@
+/* GLOBAL STYLES & VARIABLES */
+:root {
+    --accent-color: #6c63ff; /* Accent color: #6c63ff */
+    --accent-hover: #5b5bff;
+    --text-dark: #111;
+    --text-body: #333;
+    --text-muted: #777;
+    --background-light: #f9f9f9;
+    --background-white: #ffffff;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-body);
+    line-height: 1.6;
+    background-color: var(--background-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+h1, h2 {
+    color: var(--text-dark);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+/* Base CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    font-weight: 700;
+    padding: 14px 32px; /* ⭐ 2. CTA button padding */
+    border-radius: 10px; /* ⭐ 2. CTA button border-radius */
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* General Buttons (Used in Pricing) */
+.btn {
+    display: block; /* Button full width: */
+    width: 100%;
+    padding: 12px; /* Button full width: Padding: 12px */
+    border-radius: 8px; /* Button full width: Border-radius: 8px */
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.primary-btn {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+}
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+}
+.secondary-btn {
+    background-color: var(--background-light);
+    color: var(--text-body);
+    border: 1px solid #eee;
+}
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* --- ⭐ 1. Sticky Navbar --- */
+.navbar {
+    position: sticky; /* position: sticky; top: 0; */
+    top: 0; 
+    z-index: 10; /* z-index: 10; */
+    background: var(--background-white); /* background: white; */
+    padding: 18px 60px; /* Padding: 18px 60px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Light shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); 
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.nav-links a {
+    margin-left: 30px;
+    color: var(--text-body);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-cta {
+    background-color: var(--accent-color);
+    color: var(--background-white) !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+}
+.nav-cta:hover {
+    background-color: var(--accent-hover);
+    color: var(--background-white) !important;
+}
+
+/* --- ⭐ 2. Hero Section --- */
+.hero-section {
+    height: 75vh; /* Height: 75vh */
+    /* Background: soft gradient */
+    background: linear-gradient(120deg, #f8f8f8, #ffffff); 
+    padding: 80px 0;
+}
+
+.hero-content {
+    height: 100%;
+    display: flex; /* display: flex; */
+    align-items: center; /* align-items: center; */
+    justify-content: space-between; /* justify-content: space-between; */
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem; /* Heading: 3.5rem (desktop) */
+    margin-bottom: 20px;
+}
+
+.hero-text .description {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.hero-mockup {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-placeholder {
+    width: 450px;
+    height: 350px;
+    background-color: var(--background-white);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: var(--shadow-strong);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Hero CTA Button */
+.hero-section .cta-button {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+    font-size: 1.1rem;
+}
+.hero-section .cta-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+}
+
+
+/* --- ⭐ 3. Features Section --- */
+.features-section {
+    padding: 100px 0;
+    background-color: var(--background-white);
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+}
+
+.features-grid {
+    display: grid; /* Grid: */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; /* gap: 30px; */
+}
+
+.feature-card {
+    background-color: var(--background-light);
+    padding: 25px 20px; /* Card padding: 25px 20px */
+    border-radius: 12px; /* Border-radius: 12px */
+    /* Shadow: soft */
+    box-shadow: var(--shadow-soft); 
+    transition: transform 0.3s; /* Hover effect: transition: 0.3s; */
+    border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px); /* Hover effect: transform: translateY(-5px); */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+
+/* --- ⭐ 4. Pricing Section --- */
+.pricing-section {
+    padding: 100px 0;
+    background-color: var(--background-light);
+}
+
+.pricing-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+}
+
+.pricing-grid {
+    /* Same grid as features */
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    align-items: stretch;
+}
+
+.pricing-card {
+    background-color: var(--background-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.pricing-card .price {
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.pricing-card .amount {
+    font-size: 2.5rem; /* Price font-size: 2.5rem */
+    font-weight: 800;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.pricing-card ul li {
+    padding: 8px 0;
+    color: var(--text-body);
+    font-weight: 500;
+    border-bottom: 1px dotted #eee;
+}
+.pricing-card ul li:last-child {
+    border-bottom: none;
+}
+.pricing-card .check {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+.pricing-card .disabled {
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+/* Pro plan highlighted */
+.pricing-card.featured {
+    /* Background: white (default) */
+    border: 2px solid var(--accent-color);
+    box-shadow: var(--shadow-strong); /* Shadow stronger */
+    transform: scale(1.03);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+
+/* --- ⭐ 5. Contact/CTA Section --- */
+.cta-banner {
+    /* Background: very light color (#f7f7f7) */
+    background-color: #f7f7f7; 
+    padding: 70px 20px; /* Padding: 70px 20px */
+    text-align: center; /* Text centered */
+}
+
+.cta-banner h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.cta-banner p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.primary-btn-dark {
+    background-color: var(--text-dark);
+    color: var(--background-white);
+}
+.primary-btn-dark:hover {
+    background-color: #333;
+}
+
+
+/* --- ⭐ 6. Footer --- */
+.footer {
+    background-color: var(--background-white);
+    padding: 20px 0; /* Padding: 20px 0 */
+    border-top: 1px solid #eee;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer p {
+    color: var(--text-muted);
+    font-size: 0.85rem; /* Small text */
+}
+
+/* --- 🟢 RESPONSIVE BREAKPOINTS --- */
+
+/* @media (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+    .navbar {
+        padding: 18px 40px;
+    }
+
+    /* Hero becomes column, shorter height */
+    .hero-section {
+        height: auto;
+    }
+    .hero-content {
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+        gap: 60px;
+    }
+    .hero-text {
+        max-width: 100%;
+        order: 2;
+    }
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    .hero-text .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-mockup {
+        order: 1;
+    }
+}
+
+/* @media (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 25px; /* Padding reduced */
+    }
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    /* Navbar compresses/stacks */
+    .nav-links {
+        display: none; /* Can be replaced with a hamburger menu */
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    /* Simple mobile nav links if displayed */
+    .nav-links a {
+        margin-left: 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text .description {
+        font-size: 1rem;
+    }
+    .mockup-placeholder {
+        width: 300px;
+        height: 250px;
+    }
+    
+    /* Cards stack - handled by auto-fit/minmax but ensure padding is right */
+    .features-section, .pricing-section {
+        padding: 70px 0;
+    }
+    .features-grid, .pricing-grid {
+        gap: 20px;
+    }
+    .pricing-card {
+        padding: 30px;
+    }
+    .pricing-card.featured {
+         transform: scale(1.0); /* Remove scale on smaller screens */
+    }
+    .pricing-card.featured:hover {
+        transform: scale(1.03); /* Maintain slight hover effect */
+    }
+}
+
+/* @media (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8rem; /* Heading shrinks */
+    }
+    .hero-text .description {
+        font-size: 0.9rem;
+    }
+    .cta-banner h2 {
+        font-size: 1.5rem;
+    }
+    .cta-banner p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 12px 20px;
+    }
+
+    /* Skills/Features Grid becomes one column at smaller sizes if minmax hits */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card .amount {
+        font-size: 2rem;
+    }
+}

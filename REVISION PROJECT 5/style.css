@@ -1,0 +1,417 @@
+/* GLOBAL STYLES & VARIABLES */
+:root {
+    --primary-color: #111;
+    /* Dark for modern/minimalist look */
+    --accent-color: #ff4500;
+    /* Sophisticated accent (Orange Red) */
+    --text-muted: #777;
+    --background-light: #f9f9f9;
+    --background-white: #ffffff;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    line-height: 1.6;
+    background-color: var(--background-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+/* Base CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.primary-btn:hover {
+    background-color: #333;
+}
+
+.secondary-btn {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+}
+
+.secondary-btn:hover {
+    background-color: #e63900;
+}
+
+
+/* --- ⭐ 1. Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    background: var(--background-white);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    /* Search bar center */
+    max-width: 500px;
+    margin: 0 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar .fa-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.nav-icons a {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.nav-icons a:hover {
+    color: var(--accent-color);
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: 600;
+}
+
+
+/* --- ⭐ 2. Hero Banner (Grid) --- */
+.hero-banner {
+    background-color: var(--background-light);
+    padding: 60px 0;
+}
+
+.hero-content-grid {
+    display: grid;
+    /* Full-width flex or grid */
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.hero-image-placeholder {
+    height: 400px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    /* Placeholder styles */
+    background-image: url('https://via.placeholder.com/600x400/111/fff?text=Product+Mockup+Image');
+    background-size: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- ⭐ 3. Categories (GRID MAIN) --- */
+.categories-section {
+    text-align: center;
+}
+
+.categories-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));gap: 25px; */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+
+/* --- ⭐ 4. Featured Products (cards) --- */
+.products-section {
+    background-color: var(--background-light);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: var(--shadow-card);
+    /* Shadow + hover */
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-placeholder {
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    /* Placeholder style */
+    background-image: url('https://via.placeholder.com/300x200/f0f0f0/888?text=Product');
+    background-size: cover;
+    background-position: center;
+}
+
+.product-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--accent-color);
+}
+
+
+/* --- ⭐ 5. Sale Section --- */
+.sale-section {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.sale-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sale-text h2 {
+    color: var(--background-white);
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.discount-text {
+    color: var(--accent-color);
+    /* Big discount text */
+    font-weight: 900;
+}
+
+.timer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffd700;
+    /* Gold/yellow for contrast */
+}
+
+.timer-wrapper i {
+    margin-right: 10px;
+}
+
+.secondary-btn {
+    font-size: 1.1rem;
+    padding: 14px 35px;
+}
+
+
+/* --- ⭐ 6. Footer --- */
+.footer {
+    background-color: var(--background-light);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .search-bar {
+        max-width: 300px;
+        margin: 0 20px;
+    }
+
+    .hero-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-image-placeholder {
+        order: -1;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        order: 3;
+        width: 100%;
+        max-width: none;
+        margin: 15px 0 0 0;
+    }
+
+    .logo {
+        flex-grow: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-image-placeholder {
+        height: 250px;
+    }
+
+    .sale-text h2 {
+        font-size: 2rem;
+    }
+
+    .timer-wrapper {
+        font-size: 1.2rem;
+    }
+}

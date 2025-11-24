@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonam Narula | Portfolio v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        /* -------------------- GLOBAL -------------------- */
+        :root {
+            --accent-color: #007bff;
+            --text-dark: #111;
+            --text-body: #333;
+            --text-muted: #777;
+            --background-light: #f7f7f7;
+            --background-white: #ffffff;
+            --shadow-minimal: 0 3px 12px rgba(0, 0, 0, 0.08);
+            --shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--background-white);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        h1,
+        h2 {
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .accent-text {
+            color: var(--accent-color);
+        }
+
+        /* -------------------- BUTTONS -------------------- */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* -------------------- NAVBAR -------------------- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-subtle);
+            z-index: 10;
+        }
+
+        .nav-left {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-right a {
+            margin-left: 20px;
+            font-size: 1rem;
+            color: var(--text-body);
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-right a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-right a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* -------------------- HERO -------------------- */
+        .hero-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 140px 40px;
+        }
+
+        .hero-content {
+            max-width: 55%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content .subheading {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            max-width: 40%;
+        }
+
+        .profile-photo-v2 {
+            width: 350px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--shadow-minimal);
+        }
+
+        /* -------------------- ABOUT -------------------- */
+        .about-section {
+            background: var(--background-light);
+        }
+
+        .about-content {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* -------------------- SKILLS -------------------- */
+        .skills-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill-badge {
+            padding: 12px 20px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            text-align: center;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+            color: var(--accent-color);
+        }
+
+        /* -------------------- PROJECTS -------------------- */
+        .projects-section {
+            background: var(--background-light);
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-minimal);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-thumbnail {
+            height: 180px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+        }
+
+        .thumbnail-1 {
+            background-image: url("https://via.placeholder.com/300x180/eef");
+        }
+
+        .thumbnail-2 {
+            background-image: url("https://via.placeholder.com/300x180/ffe");
+        }
+
+        .thumbnail-3 {
+            background-image: url("https://via.placeholder.com/300x180/eff");
+        }
+
+        /* -------------------- CONTACT -------------------- */
+        .contact-section {
+            text-align: center;
+        }
+
+        /* -------------------- FOOTER -------------------- */
+        .footer {
+            background: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        /* -------------------- RESPONSIVE -------------------- */
+        @media (max-width: 900px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 20px;
+            }
+
+            .hero-content,
+            .hero-image {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-photo-v2 {
+                width: 250px;
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">Sonam Narula</div>
+        <div class="nav-right">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section container">
+        <div class="hero-content">
+            <h1>Hi, I'm Sonam, a <span class="accent-text">Developer.</span></h1>
+            <p class="subheading">Full-Stack Enthusiast and disciplined CS student focusing on clean UI/UX and
+                competitive coding.</p>
+            <a href="#projects" class="cta-button primary-btn">View My Work</a>
+        </div>
+        <div class="hero-image">
+            <img src="IMG_1140.JPG" alt="Sonam Narula" class="profile-photo-v2" />
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container about-content">
+            <h2>About Me</h2>
+            <p>I’m a self-driven Computer Science student from Jaipur, disciplined in balancing Full-Stack Web
+                Development and DSA in C++. My core belief is in consistency—whether it's maintaining a 200+ day POTD
+                streak or waking up early during brahm muhurat hours.</p>
+            <p>My adaptability, shaped by moving through multiple cities, fuels my hunger to grow. I’m currently focused
+                on building strong skills to secure an on-site internship and achieve financial independence. I thrive
+                on clean, aesthetic, and minimalistic designs—both in my projects and daily routine.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section container">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-badge">HTML5</div>
+            <div class="skill-badge">CSS3 (Grid/Flexbox)</div>
+            <div class="skill-badge">JavaScript</div>
+            <div class="skill-badge">C++ (DSA)</div>
+            <div class="skill-badge">Python</div>
+            <div class="skill-badge">Git & GitHub</div>
+            <div class="skill-badge">React (Learning)</div>
+            <div class="skill-badge">UI/UX Design</div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section container">
+        <h2>My Latest Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumbnail thumbnail-1"></div>
+                <h3>Minimal Portfolio (v1)</h3>
+                <p>A clean, responsive personal page built using pure CSS and Flexbox.</p>
+                <a href="#" class="view-btn">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-thumbnail thumbnail-2"></div>
+                <h3>Product Landing Page</h3>
+                <p>A high-quality responsive landing page using CSS Grid for layout.</p>
+                <a href="#" class="view-btn">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-thumbnail thumbnail-3"></div>
+                <h3>DSA C++ Tracker</h3>
+                <p>A Tkinter/Python GUI app to track daily POTD progress (Planned).</p>
+                <a href="#" class="view-btn">View Project →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Ready to connect?</h2>
+            <p>I’m open to internships, collaborations, and study discussions!</p>
+            <a href="mailto:your.email@gmail.com" class="cta-button primary-btn">Email Me (Gmail)</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Sonam Narula. Minimalistic. Clean. Discipline-first.</p>
+    </footer>
+</body>
+
+</html>
